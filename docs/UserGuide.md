@@ -157,8 +157,13 @@ Orders will be assigned an ID number automatically when created. This ID number 
 `<date of delivery>` must exist in the order command, and must follow the ***YYYY-MM-DD HHmm*** format (describes the date the order must be delivered by) 
 `<address>` can be different from the client's own address
 
-**Example** :<br>
-`order --description shoes --client 123 --address 22 college avenue drive --date 2020-10-31 2359` : creates an order ordered by client 123 called “shoes” that is to be delivered to "22 college avenue drive" by "2020-10-31 2359"
+**Valid Usage Example** :<br>
+Before adding order:
+![Before Add Order](images/BeforeAddOrderCommand.png)
+
+After adding order:
+![After Add Order](images/AfterAddOrderCommand.png)
+`order --description shoes --client 1 --address 22 college avenue drive --date 2020-10-31 2359` : creates an order ordered by client 123 called “shoes” that is to be delivered to "22 college avenue drive" by "2020-10-31 2359"
 
 
 ------------------------------------------------------------------------------------------------------------------------
@@ -175,7 +180,12 @@ the phone number `<client phone number>`.
 `<client email>` must not be blank. <br>
 `<client phone>` must not be blank.
 
-**Example** :<br>
+**Valid Usage Example** :<br>
+Before adding client:
+![Before Add Client](images/BeforeAddClientCommand.png)
+
+After adding client:
+![After Add Client](images/AfterAddClientCommand.png)
 `client --name John Wick --address New York Continental --email johnwick@kgoomail.com --phone 91234567` : 
 adds a client named John Wick whose address is the New York Continental, whose email is johnwick@kgoomail.com and 
 whose phone number is 91234567.
@@ -190,6 +200,13 @@ The feature also works when clicking on the "Orders" GUI button.
 **Format** : `list-order`<br>
 Displays a list of all orders in the order list (and the client that placed the order respectively).
 
+**Valid Usage Example**:<br>
+![Before List Orders](images/BeforeListOrderCommand.png)
+Shows a filtered order list
+
+![After List Orders](images/AfterListOrderCommand.png)
+Shows full unfiltered order list
+
 ------------------------------------------------------------------------------------------------------------------------
 
 ### Listing Clients : `list-client`
@@ -199,6 +216,13 @@ The feature also works when clicking on the "Clients" GUI button.
 
 **Format** : `list-client`<br>
 Displays a list of all clients in the client list.
+
+**Valid Usage Example**:<br>
+![Before Client Orders](images/BeforeListClientCommand.png)
+Shows a filtered client list
+
+![After Client Orders](images/AfterListClientCommand.png)
+Shows full unfiltered client list
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -227,15 +251,15 @@ To identify the unique order ID of a client, view the 5 digit ID number assigned
 the client's name. For example, if the first line of the order information is `2. Order #00005`, then the 
 order's unique order ID is `5`.
 
-**Invalid Usage Example** :
+**Invalid Usage Example** :<br>
 ![Invalid Order Command](images/InvalidDeleteOrderCommand.png)
 Order index should be a valid unique order ID in the order list
 
-**Valid Usage Example** :
+**Valid Usage Example** :<br>
 ![Valid Order Command](images/ValidDeleteOrderCommand.png)
 `delete-order --order 2` : deletes the order with unique order ID #00002
 
-**Other Valid Usages** :
+**Other Valid Usages** :<br>
 Entering order ID with as many leading zeroes (e.g `00000000001`) will still work as long as the order id without the
 leading zeroes (e.g `1`) is a valid unique client ID in the client list.
 
@@ -258,16 +282,16 @@ To identify the unique client ID of a client, view the 5 digit ID number assigne
 the client's name. For example, if the first line of the client information is `1. Kim Kardashian [ID#00003]`, then the 
 client's unique client ID is `3`.
 
-**Invalid Usage Example** :
+**Invalid Usage Example** :<br>
 ![Invalid Client Command](images/InvalidDeleteClientCommand.png)
 Client ID should be a valid unique client ID in the client list
 
-**Valid Usage Example 1** : Deleting Client with Empty Order List
+**Valid Usage Example 1** : Deleting Client with Empty Order List <br>
 ![Valid Client Command 1](images/ValidDeleteClientCommand.png)
 `delete-client --client 1` : deletes the client with unique client ID #00001
 In this case, no orders are deleted as no orders are linked to the client
 
-**Valid Usage Example 2** : Delete Client with Non-Empty Order List
+**Valid Usage Example 2** : Delete Client with Non-Empty Order List <br>
 ![Valid Client Command 2](images/DeleteClient4Command.png)
 `delete-client --client 4` : deletes the client with unique client ID #00004
 
@@ -278,7 +302,7 @@ After client #00004 is deleted :
 ![Delete Orders Linked to Client 4](images/DeletedOrdersFromDeletedClient.png)
 All orders in order list that are linked to client with unique ID `#00004` are deleted
 
-**Other Valid Usages** :
+**Other Valid Usages** :<br>
 Entering client ID with as many leading zeroes (e.g `00000000001`) will still work as long as the client id without the 
 leading zeroes (e.g `1`) is a valid unique client ID in the client list.
 
@@ -295,7 +319,12 @@ Marks `Order` with `<order id>` as done.
 `<order id>` must exist in the order list.
 `<order id>` is a unique number assigned to each order.
 
-**Example** :<br>
+**Valid Usage Example** :<br>
+Before completing order:
+![Before Done Command](images/BeforeDoneCommand.png)
+
+After completing order:
+![After Done Command](images/AfterDoneCommand.png)
 `done 3` : Marks the order with an order ID of 3 as complete (#00003 as represented in the GUI).
 
 ------------------------------------------------------------------------------------------------------------------------
@@ -324,10 +353,21 @@ as it does for `<name keywords>`.
  
 * `<phone number>` is a string of numbers only with a minimum length of 3.
 
-**Examples**:
+**Valid Usage Examples**:<br>
+Before find client command:
+![Before Find Command](images/BeforeFindAliceCommand.png)
+
+After find client command:
+![After Find Command](images/AfterFindAliceCommand.png)
 * `find alice --phone 9123 --address changi` will display any clients with 'Alice' in their names, with a phone number of 
 9123 and who live in Changi. This would be a very specific search, as phone numbers must be an exact match.
 
+
+Before find client command:
+![Before Find Command](images/BeforeFindBobCharlesCommand.png)
+
+After find client command:
+![After Find Command](images/AfterFindBobCharlesCommand.png)
 * `find bob charles --address queenstown commonwealth` will display any clients with either 'Bob' or 'Charles' in their names who also
 live in Queenstown or Commonwealth. This would be a more general search, as each client only has to match one keyword in
 each category of searching.
@@ -359,14 +399,26 @@ as it does for `<description keywords>`.
  
 * `<date>` is a string of numbers separated by dashes in the format of `YYYY-MM-DD`.
 
-**Examples**:
-* `find-order iPhone --date 2020-10-23` will find all orders that contain `iPhone` in their description that are also deliverd
+**Valid Usage Examples**:<br>
+Before find order command:
+![Before Find Command](images/BeforeAddOrderCommand.png)
+
+After find order command:
+![After Find Command](images/AfterFindiPhoneCommand.png)
+* `find-order iPhone --date 2020-10-23` will find all orders that contain `iPhone` in their description that are also delivered
 on 23rd October 2020
+
+Before find order command:
+![Before Find Command](images/BeforeFindOrderCommand.png)
+
+After find order command:
+![After Find Command](images/AfterFindCoatCommand.png)
 * `find-order --date 2020-11-24 --address Jurong Clementi` will find all orders delivered on 24th November 2020 that contain either
 `Jurong` or `Clementi` in their delivery address.
 
+------------------------------------------------------------------------------------------------------------------------
 
-### Editing/Updating orders: `update-order`
+### Updating orders: `update-order`
 
 **Description** : Modifies a specified order with the new information provided in this command.
 
