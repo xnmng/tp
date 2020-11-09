@@ -426,17 +426,34 @@ After find order command:
 
 This command will update the data fields of the order with the new information given in the command. The criteria for each field is similar to the criteria for the fields in `order`, and are given below.
 
-Each of these fields are optional, and their parameter tags may be left out of the command if desired.
+Each of the fields in parentheses are optional, and their parameter tags may be left out of the command if desired.
 
 `<order ID of order to be changed>` must be an existing order ID.
 
 `<new order description>` should not be blank.
 
-`<new client id>` must be a client ID of an existing client.
+`<new client id>` the new client ID this order should be tagged to. (note: client ID can be any number from 1 to 99999 inclusive)
 
 `<new address>` should not be blank.
 
 `<new delivery date>` should not be left blank, and must be in the format `YYYY-MM-DD HHmm`.
+
+**Examples**:
+* `update-order --order 1 --description jeans` will update the description of the order with order ID 1 to `jeans`
+
+Before:
+![update order example 1 before](images/update order example 1 before.jpg)
+
+After:
+![update order example 1 after](images/update order example 1 after.jpg)
+
+* `update-order --order 2 --date 2020-12-12 1500 --description china ware` will update the date of the order with order ID 2 to `2020-12-12 1500` and also update the description of the order with order ID 2 to `china ware`
+
+Before:
+![update order example 2 before](images/update order example 2 before.jpg)
+
+After:
+![update order example 2 after](images/update order example 2 after.jpg)
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -447,7 +464,7 @@ Each of these fields are optional, and their parameter tags may be left out of t
 
 This command will update the data fields of the client with the new information given in the command. The criteria for each field is similar to the criteria for the fields in `client`, and are given below.
 
-Each of these fields are optional, and their parameter tags may be left out of the command if desired.
+Each of the fields in parentheses are optional, and their parameter tags may be left out of the command if desired.
 
 `<client ID of client to be changed>` should consist of only positive numbers, and should correspond to the client ID of an existing client.
 
@@ -458,6 +475,23 @@ Each of these fields are optional, and their parameter tags may be left out of t
 `<new address>` should not be blank.
 
 `<new email>` should not be blank, and should be of a valid email format.
+
+**Examples**:
+* `update-client --client 1 --name paul tan zhi rong` will update the name of the client with client ID 1 to `paul tan zhi rong`
+
+Before:
+![update client example 1 before](images/update client example 1 before.jpg)
+
+After:
+![update client example 1 after](images/update client example 1 after.jpg)
+
+* `update-client --client 2 --address 51 commonwealth drive #05-123 --phone 94582153` will update the address of the client with client ID 2 to `51 commonwealth drive #05-123` and update the phone number of the client with client ID 2 to `94582153`
+
+Before:
+![update client example 2 before](images/update client example 2 before.jpg)
+
+After:
+![update client example 2 after](images/update client example 2 after.jpg)
 
 ------------------------------------------------------------------------------------------------------------------------
 
