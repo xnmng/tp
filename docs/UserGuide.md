@@ -442,18 +442,18 @@ Each of the fields in parentheses are optional, and their parameter tags may be 
 * `update-order --order 1 --description jeans` will update the description of the order with order ID 1 to `jeans`
 
 Before:
-![update order example 1 before](images/update order example 1 before.jpg)
+![update order example 1 before](images/update order example 1 before.png)
 
 After:
-![update order example 1 after](images/update order example 1 after.jpg)
+![update order example 1 after](images/update order example 1 after.png)
 
 * `update-order --order 2 --date 2020-12-12 1500 --description china ware` will update the date of the order with order ID 2 to `2020-12-12 1500` and also update the description of the order with order ID 2 to `china ware`
 
 Before:
-![update order example 2 before](images/update order example 2 before.jpg)
+![update order example 2 before](images/update order example 2 before.png)
 
 After:
-![update order example 2 after](images/update order example 2 after.jpg)
+![update order example 2 after](images/update order example 2 after.png)
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -480,18 +480,18 @@ Each of the fields in parentheses are optional, and their parameter tags may be 
 * `update-client --client 1 --name paul tan zhi rong` will update the name of the client with client ID 1 to `paul tan zhi rong`
 
 Before:
-![update client example 1 before](images/update client example 1 before.jpg)
+![update client example 1 before](images/update client example 1 before.png)
 
 After:
-![update client example 1 after](images/update client example 1 after.jpg)
+![update client example 1 after](images/update client example 1 after.png)
 
 * `update-client --client 2 --address 51 commonwealth drive #05-123 --phone 94582153` will update the address of the client with client ID 2 to `51 commonwealth drive #05-123` and update the phone number of the client with client ID 2 to `94582153`
 
 Before:
-![update client example 2 before](images/update client example 2 before.jpg)
+![update client example 2 before](images/update client example 2 before.png)
 
 After:
-![update client example 2 after](images/update client example 2 after.jpg)
+![update client example 2 after](images/update client example 2 after.png)
 
 ------------------------------------------------------------------------------------------------------------------------
 
