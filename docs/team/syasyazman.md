@@ -84,6 +84,8 @@ Given below are my contributions to the project.
     [\#169](https://github.com/AY2021S1-CS2103-F09-4/tp/pull/169)
     * Helped with usage of PlantUML to make UML diagrams for LogOnce's commands
     [\#182](https://github.com/AY2021S1-CS2103-F09-4/tp/pull/182) 
+    [\#208](https://github.com/AY2021S1-CS2103-F09-4/tp/pull/208)
     * Helped to update UML diagrams for main components of LogOnce
     [\#201](https://github.com/AY2021S1-CS2103-F09-4/tp/pull/201)
+ 
     
