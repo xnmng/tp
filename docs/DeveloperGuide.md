@@ -451,18 +451,52 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Pros: Will use less memory (e.g. for `delete-client`, just save the client being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
   
-  
+### Update Feature
 
-### Update-client feature
+The update mechanism is split into two functionalities - `Update Order` and `Update Client`.
 
-The Update-client mechanism is facilitated by `UpdateClientCommand` and `UpdateClientCommandParser`. `UpdateClientCommandParser` implement `Parser`.
-`UpdateClientCommand` extend `Command`.
+The update mechanism is facilitated by `UpdateOrderCommand`, `UpdateOrderCommandParser`, `UpdatedOrderFields`,
+`UpdateClientCommand`, `UpdateClientCommandParser`, `UpdatedClientFields`, `AddressBook` and `ModelManager`. 
 
-This command allows the user to update an existing `Client` by their index.
+`UpdateOrderCommand` and `UpdatedOrderFields` extends `Command`, `UpdateOrderCommandParser` and 
+`UpdateClientCommandParser` implements `Parser`, `AddressBook` implements `ReadOnlyAddressBook` and `ModelManager` 
+implements `Model`.
 
-The parser will split the provided terms into an array, obtain what field is to be updated (`Name`, `Address`, `Email`, `Phone`) and obtain the field that is to be updated.
+These operations are exposed in the `Model` interface as `Model#deletePerson()` and `Model#deleteOrder()`. They are also
+exposed in the `AddressBook` class as `AddressBook#removeClient()` and `AddressBook#removeOrder()`.
 
-Upon calling the `Execute` method in UpdateClientCommand, the model is queried to obtain the list of clients. From this list, the client is obtained, removed and a new client with the updated field is added into the same index as the deleted client.
+Given below is an example usage scenario and how the update mechanism behaves at each step.
+
+**Update Order**
+
+Step 1. The user launches application and views his/her list of orders. In this case, the order list is empty.
+
+Step 2. The user executes `order --description book --client 1 --address 123 --date 2020-12-12 2359`. An order is 
+created and appended to the end of the order list.
+
+Step 3. The user decides to update the order he had just created. The user notes that the unique order ID of the order 
+is `#00001`. The user executes `update-order --order 1 --description textbook` to update the order from the order list.
+
+The following sequence diagram shows how the update order operation works :
+
+![Update Order Sequence Diagram]()
+
+**Update Client**
+
+Step 1. The user launches application and views his/her list of clients. In this scenario, the client list is empty.
+
+Step 2. The user executes `client --name john --address 123 --email john@gmail.com --phone 12345678`. A client is 
+created and appended to the end of the client list.
+
+Step 3. The user decides to update the client he had just created. The user notes that the unique client ID of the 
+client is `#00001`. The user executes `update-client --client 1 --name john cena` to update the client from the client list.
+
+Step 4. When user update the client, all orders from the order list that are linked to the original client will also be transferred 
+to the new client.
+
+The following sequence diagram shows how the update client operation works :
+
+![Update Client Sequence Diagram]()
 
 --------------------------------------------------------------------------------------------------------------------
 
